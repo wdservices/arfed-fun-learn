@@ -1,29 +1,36 @@
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, Star, Smartphone, Users } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Pricing = () => {
+  const [selectedPlan, setSelectedPlan] = useState("monthly");
+
   const plans = [
     {
-      name: "Free Plan",
-      price: "Free",
-      period: "forever",
-      description: "Explore 5 AR lessons & chat with the AI tutor—no credit card required.",
+      name: "Daily Plan",
+      price: selectedPlan === "daily" ? "₦500" : selectedPlan === "monthly" ? "₦10,500" : "₦126,000",
+      usdPrice: selectedPlan === "daily" ? "$4.55" : selectedPlan === "monthly" ? "$7.99" : "$95",
+      period: selectedPlan === "daily" ? "/day" : selectedPlan === "monthly" ? "/month" : "/year",
+      description: "All access to premium AR lessons & AI tutoring for one day.",
       features: [
-        "5 AR lesson experiences",
-        "Basic AI chat tutor",
-        "Web browser access",
-        "Community support"
+        "Unlimited AR lessons",
+        "Advanced AI chat tutor",
+        "Upload custom 3D models",
+        "Progress tracking",
+        "Priority support"
       ],
-      icon: <Star className="text-yellow-500" size={24} />,
+      icon: <Smartphone className="text-purple-500" size={24} />,
       popular: false,
-      cta: "Start Free"
+      cta: "Choose Daily Plan"
     },
     {
-      name: "Learner Plan",
-      price: "$1.99",
-      period: "/month",
+      name: "Monthly Plan",
+      price: selectedPlan === "daily" ? "₦500" : selectedPlan === "monthly" ? "₦10,500" : "₦126,000",
+      usdPrice: selectedPlan === "daily" ? "$4.55" : selectedPlan === "monthly" ? "$7.99" : "$95",
+      period: selectedPlan === "daily" ? "/day" : selectedPlan === "monthly" ? "/month" : "/year",
       description: "Unlimited AR, AI-chat help, and your own 3D model uploads.",
       features: [
         "Unlimited AR lessons",
@@ -35,39 +42,55 @@ const Pricing = () => {
       ],
       icon: <Smartphone className="text-purple-500" size={24} />,
       popular: true,
-      cta: "Choose Learner",
-      discount: "50% off first 3 months via Google Play!"
+      cta: "Choose Monthly Plan",
+      discount: "Most popular choice!"
     },
     {
-      name: "Classroom Plan",
-      price: "$6.99",
-      period: "/month per teacher",
-      description: "All-access for classes of up to 30 students, shared tracking, plus priority support.",
+      name: "Yearly Plan",
+      price: selectedPlan === "daily" ? "₦500" : selectedPlan === "monthly" ? "₦10,500" : "₦126,000", 
+      usdPrice: selectedPlan === "daily" ? "$4.55" : selectedPlan === "monthly" ? "$7.99" : "$95",
+      period: selectedPlan === "daily" ? "/day" : selectedPlan === "monthly" ? "/month" : "/year",
+      description: "All-access for a full year with significant savings.",
       features: [
-        "Everything in Learner Plan",
-        "Up to 30 student accounts",
-        "Classroom management tools",
-        "Shared progress tracking",
+        "Everything in Monthly Plan",
+        "2 months free (save 17%)",
         "Custom lesson plans",
-        "Teacher dashboard",
-        "Dedicated support"
+        "Advanced analytics",
+        "Dedicated support",
+        "Early access to new features"
       ],
       icon: <Users className="text-cyan-500" size={24} />,
       popular: false,
-      cta: "Contact Sales"
+      cta: "Choose Yearly Plan"
     }
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section id="pricing" className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
             Choose Your Learning Journey
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Start free, upgrade anytime. Special launch pricing for our mobile app!
+            Select a plan that works for you. Special launch pricing available now!
           </p>
+          
+          {/* Pricing Tabs */}
+          <div className="mt-8 flex justify-center">
+            <Tabs 
+              defaultValue="monthly" 
+              value={selectedPlan}
+              onValueChange={setSelectedPlan}
+              className="w-full max-w-md"
+            >
+              <TabsList className="grid grid-cols-3 w-full">
+                <TabsTrigger value="daily">Daily</TabsTrigger>
+                <TabsTrigger value="monthly">Monthly</TabsTrigger>
+                <TabsTrigger value="yearly">Yearly</TabsTrigger>
+              </TabsList>
+            </Tabs>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -86,9 +109,12 @@ const Pricing = () => {
                   </div>
                 </div>
                 <CardTitle className="text-2xl font-bold text-gray-800">{plan.name}</CardTitle>
-                <div className="text-4xl font-bold text-gray-900">
+                <div className="text-4xl font-bold text-gray-900 mt-2">
                   {plan.price}
-                  <span className="text-lg font-medium text-gray-500">{plan.period}</span>
+                  <span className="text-lg font-medium text-gray-500 ml-1">{plan.period}</span>
+                </div>
+                <div className="text-lg font-medium text-gray-600">
+                  {plan.usdPrice}
                 </div>
                 <p className="text-gray-600 text-sm mt-2">{plan.description}</p>
                 {plan.discount && (
@@ -126,7 +152,7 @@ const Pricing = () => {
             Ready to transform your classroom? Contact us for custom enterprise solutions.
           </p>
           <Button variant="outline" size="lg" className="border-2 border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white">
-            Schedule Demo
+            Book a Demo
           </Button>
         </div>
       </div>

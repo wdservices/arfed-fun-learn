@@ -1,5 +1,5 @@
 
-import { Atom, Globe, Microscope, Zap } from "lucide-react";
+import { Atom, Globe, Microscope, Zap, Plus } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const EducationAR = () => {
@@ -8,19 +8,25 @@ const EducationAR = () => {
       icon: <Microscope className="text-green-500" size={32} />,
       title: "Cell Biology",
       description: "Zoom inside a living cell, turn organelles in your hand, and watch processes unfold in real time.",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: <Atom className="text-blue-500" size={32} />,
       title: "Physics & Chemistry",
       description: "Visualize force vectors, molecular bonds, and chemical reactions in 3D—no textbooks required.",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: <Globe className="text-purple-500" size={32} />,
       title: "Geography & Planetary Science",
       description: "Fly over realistic terrain models, inspect volcano interiors, and journey across the solar system.",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      icon: <Plus className="text-pink-500" size={32} />,
+      title: "And More",
+      description: "Explore mathematics, history, architecture, and countless other subjects in immersive AR.",
+      image: "https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     }
   ];
 
@@ -38,7 +44,7 @@ const EducationAR = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-4 gap-8">
           {subjects.map((subject, index) => (
             <Card key={index} className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="relative h-48 overflow-hidden">
