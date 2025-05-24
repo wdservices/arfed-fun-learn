@@ -1,19 +1,15 @@
 
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, Star, Smartphone, Users } from "lucide-react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Pricing = () => {
-  const [selectedPlan, setSelectedPlan] = useState("monthly");
-
   const plans = [
     {
       name: "Daily Plan",
-      price: selectedPlan === "daily" ? "₦500" : selectedPlan === "monthly" ? "₦10,500" : "₦126,000",
-      usdPrice: selectedPlan === "daily" ? "$4.55" : selectedPlan === "monthly" ? "$7.99" : "$95",
-      period: selectedPlan === "daily" ? "/day" : selectedPlan === "monthly" ? "/month" : "/year",
+      price: "₦500",
+      usdPrice: "$4.55",
+      period: "/day",
       description: "All access to premium AR lessons & AI tutoring for one day.",
       features: [
         "Unlimited AR lessons",
@@ -28,9 +24,9 @@ const Pricing = () => {
     },
     {
       name: "Monthly Plan",
-      price: selectedPlan === "daily" ? "₦500" : selectedPlan === "monthly" ? "₦10,500" : "₦126,000",
-      usdPrice: selectedPlan === "daily" ? "$4.55" : selectedPlan === "monthly" ? "$7.99" : "$95",
-      period: selectedPlan === "daily" ? "/day" : selectedPlan === "monthly" ? "/month" : "/year",
+      price: "₦10,500",
+      usdPrice: "$7.99",
+      period: "/month",
       description: "Unlimited AR, AI-chat help, and your own 3D model uploads.",
       features: [
         "Unlimited AR lessons",
@@ -47,9 +43,9 @@ const Pricing = () => {
     },
     {
       name: "Yearly Plan",
-      price: selectedPlan === "daily" ? "₦500" : selectedPlan === "monthly" ? "₦10,500" : "₦126,000", 
-      usdPrice: selectedPlan === "daily" ? "$4.55" : selectedPlan === "monthly" ? "$7.99" : "$95",
-      period: selectedPlan === "daily" ? "/day" : selectedPlan === "monthly" ? "/month" : "/year",
+      price: "₦126,000", 
+      usdPrice: "$95",
+      period: "/year",
       description: "All-access for a full year with significant savings.",
       features: [
         "Everything in Monthly Plan",
@@ -75,22 +71,6 @@ const Pricing = () => {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Select a plan that works for you. Special launch pricing available now!
           </p>
-          
-          {/* Pricing Tabs */}
-          <div className="mt-8 flex justify-center">
-            <Tabs 
-              defaultValue="monthly" 
-              value={selectedPlan}
-              onValueChange={setSelectedPlan}
-              className="w-full max-w-md"
-            >
-              <TabsList className="grid grid-cols-3 w-full">
-                <TabsTrigger value="daily">Daily</TabsTrigger>
-                <TabsTrigger value="monthly">Monthly</TabsTrigger>
-                <TabsTrigger value="yearly">Yearly</TabsTrigger>
-              </TabsList>
-            </Tabs>
-          </div>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">

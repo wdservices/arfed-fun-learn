@@ -1,5 +1,5 @@
 
-import { Atom, Globe, Microscope, Zap, Plus } from "lucide-react";
+import { Atom, Globe, Microscope, Plus } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const EducationAR = () => {
