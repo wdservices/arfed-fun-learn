@@ -7,8 +7,8 @@ const Pricing = () => {
   const plans = [
     {
       name: "Daily Plan",
-      price: "₦500",
-      usdPrice: "$4.55",
+      price: "₦350",
+      usdPrice: "$3.55",
       period: "/day",
       description: "All access to premium AR lessons & AI tutoring for one day.",
       features: [
