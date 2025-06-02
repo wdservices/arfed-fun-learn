@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check, Star, Smartphone, Users } from "lucide-react";
+import { Check, Star, Smartphone, Users, Calendar } from "lucide-react";
 
 const Pricing = () => {
   const plans = [
@@ -14,7 +14,6 @@ const Pricing = () => {
       features: [
         "Unlimited AR lessons",
         "Advanced AI chat tutor",
-        "Upload custom 3D models",
         "Progress tracking",
         "Priority support"
       ],
@@ -23,17 +22,33 @@ const Pricing = () => {
       cta: "Choose Daily Plan"
     },
     {
+      name: "Termly Plan",
+      price: "₦31,000",
+      usdPrice: "$20.99",
+      period: "/3 months",
+      description: "Complete access for a full school term with great value.",
+      features: [
+        "Unlimited AR lessons",
+        "Advanced AI chat tutor",
+        "Progress tracking",
+        "Priority support",
+        "Custom lesson plans",
+        "Advanced analytics"
+      ],
+      icon: <Calendar className="text-purple-500" size={24} />,
+      popular: false,
+      cta: "Choose Termly Plan"
+    },
+    {
       name: "Monthly Plan",
       price: "₦10,500",
       usdPrice: "$7.99",
       period: "/month",
-      description: "Unlimited AR, AI-chat help, and your own 3D model uploads.",
+      description: "Unlimited AR, AI-chat help for monthly access.",
       features: [
         "Unlimited AR lessons",
         "Advanced AI chat tutor",
-        "Upload custom 3D models",
         "Progress tracking",
-        "Offline mode",
         "Priority support"
       ],
       icon: <Smartphone className="text-purple-500" size={24} />,
@@ -73,7 +88,7 @@ const Pricing = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
             <Card key={index} className={`relative overflow-hidden ${plan.popular ? 'ring-2 ring-purple-500 shadow-2xl scale-105' : 'shadow-lg'} transition-all duration-300 hover:shadow-xl`}>
               {plan.popular && (
